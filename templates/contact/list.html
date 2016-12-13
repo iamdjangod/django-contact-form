@@ -1,0 +1,22 @@
+{% extends 'contact/base.html' %}
+{% block content %}
+    <div class="container">
+      <!-- Example row of columns -->
+        {% if contacts %}
+      <div class="row">
+        <div class="col-md-4">
+            {% for contact in contacts %}
+          <h2>{{ contact.name }}</h2>
+          <p>{{ contact.email }}</p>
+             {% endfor %}
+        </div>
+      {% else %}
+          <div class="col-md-4">
+                <p>There are no contacts present</p>
+          </div>
+      </div>
+      </div>
+    {% endif %}
+</div>
+      <hr>
+{% endblock %}

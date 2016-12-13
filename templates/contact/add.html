@@ -1,0 +1,44 @@
+{% extends 'contact/base.html' %}
+{% block content %}
+<div class="jumbotron">
+      <div class="container">
+<h1>Contact</h1>
+<form role="form" action="" method="post" id="contact_wrap">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+</form>
+ </div></div>
+{% endblock %}
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js"></script>
+<script>
+$(function() {
+    $( "#contact_wrap" ).validate({
+
+        errorClass: "my-error-class", //apply a css class for error if you have style for valid
+        validClass: "my-valid-class", //apply a css class for error if you have style for error
+
+        rules: {
+            name: {
+                required: true
+            },
+
+            email: {
+                required: true
+            },
+
+        },
+        messages: {
+            name: {
+                required: "Please enter your Name."
+            },
+            email: {
+                required: "Please enter your Email."
+            },
+        },
+    });
+
+});
+</script>
